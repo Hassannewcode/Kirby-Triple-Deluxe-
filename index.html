@@ -1,14 +1,56 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wordle AI Terminal</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hassan's Kirby Emulator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    iframe {
+      width: 90vw;
+      height: 80vh;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 16px rgba(0,0,0,0.8);
+    }
+
+    #loading {
+      margin-top: 1rem;
+      color: #aaa;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <div id="terminal"></div>
-  <input type="text" id="input" autofocus placeholder="Press Enter after feedback (e.g. GYBBG)" />
-  <button id="resetBtn">Reset</button>
-  <script src="script.js"></script>
+  <h1>Hassan's Kirby Emulator</h1>
+  <iframe
+    id="emulator"
+    src="emulator/index.html?rom=https://raw.githubusercontent.com/Hassannewcode/Kirby-Triple-Deluxe-/main/rom/Kirby%20-%20Triple%20Deluxe%20(USA)%20(En,Fr,Es).3ds"
+  ></iframe>
+  <div id="loading">Loading Kirby - Triple Deluxe...</div>
+
+  <script>
+    const emulator = document.getElementById("emulator");
+    emulator.addEventListener("load", () => {
+      document.getElementById("loading").textContent = "Game Loaded!";
+    });
+  </script>
 </body>
 </html>
